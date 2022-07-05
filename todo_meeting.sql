@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 01, 2022 at 06:43 PM
+-- Generation Time: Jul 05, 2022 at 08:37 AM
 -- Server version: 8.0.29-0ubuntu0.20.04.3
 -- PHP Version: 7.4.29
 
@@ -47,6 +47,11 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `meetings` (
   `id` bigint UNSIGNED NOT NULL,
   `event_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `temperature` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `weatherDes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mobile_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `key_note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -61,8 +66,9 @@ CREATE TABLE `meetings` (
 -- Dumping data for table `meetings`
 --
 
-INSERT INTO `meetings` (`id`, `event_name`, `name`, `mobile_number`, `key_note`, `meeting_slot`, `user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Test1', 'Test1', 'Test1', 'Test1', '2022-07-01 10:46:00', 1, '2022-06-30 23:46:02', '2022-07-01 07:42:36', NULL);
+INSERT INTO `meetings` (`id`, `event_name`, `country`, `state`, `city`, `temperature`, `weatherDes`, `name`, `mobile_number`, `key_note`, `meeting_slot`, `user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Test1', NULL, NULL, NULL, NULL, NULL, 'Test1', 'Test1', 'Test1', '2022-07-01 10:46:00', 1, '2022-06-30 23:46:02', '2022-07-01 07:42:36', NULL),
+(2, 'Test', 'India', 'Chhattisgarh', 'Bhilai', '24.85', 'overcast clouds', 'Anil Pusa', '8085298234', 'Test', '2022-07-05 07:05:00', 1, '2022-07-04 20:17:40', '2022-07-04 20:17:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -237,7 +243,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `meetings`
 --
 ALTER TABLE `meetings`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`

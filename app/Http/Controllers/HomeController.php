@@ -25,7 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {   $data = Meeting::whereNull('deleted_at')->where('user_id', Auth::user()->id)->get();
-        return view('home',compact('data'));
+        $url = "https://countriesnow.space/api/v0.1/countries/positions";
+
+        $headers = ['Cache-Control' => 'no-cache', 'Content-Type' => 'application/json'];
+        $respose = apiRequest($url,'GET',[]);
+
+        $countreis = [];
+        if(!empty($respose)){
+            $respose = json_decode($respose,1);
+            // dd($respose['data']);
+            $countries = $respose['data'];
+            // dd($countries);
+        }
+        
+        return view('home',compact('data','countries'));
     }
 
     public function addMeeting(Request $request){
@@ -33,14 +46,25 @@ class HomeController extends Controller
         $request->validate([
             'event_name' => 'required',
             'name' => 'required',
+            'country' => 'required',
+            'state' => 'required',
+            'city' => 'required',
+            'temperature' => 'required',
+            'weatherDes' => 'required',
             'mobile_number' => 'required',
             'key_note' => 'required',
             'meeting_slot' => 'required'
         ]);
+        // dd($request);
 
         $createMeeting = Meeting::create([
             'event_name' => $request->event_name,
             'name' => $request->name,
+            'country' => $request->country,
+            'state' => $request->state,
+            'city' => $request->city,
+            'temperature' => $request->temperature,
+            'weatherDes' => $request->weatherDes,
             'mobile_number' => $request->mobile_number,
             'key_note' => $request->key_note,
             'meeting_slot' => $request->meeting_slot,

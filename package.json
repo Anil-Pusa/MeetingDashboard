@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
-        "datatables.net": "^1.12.1"
+        "datatables.net": "^1.12.1",
+        "bootstrap-select": "^1.13.18"
     }
 }
