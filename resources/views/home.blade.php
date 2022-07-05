@@ -31,10 +31,10 @@
                 @csrf
                 <div class="row mb-3">
                     <div class="col">
-                        <input type="text" class="form-control" name="event_name" placeholder="Event">
+                        <input type="text" class="form-control" name="event_name" placeholder="Event" required>
                     </div>
                     <div class="col">
-                        <select name="country" class="form-control selectpicker" data-live-search="true" id="country">
+                        <select name="country" class="form-control selectpicker" data-live-search="true" id="country" required>
                             <option value="">Select country</option>
                             @foreach ($countries as $item)
                             <option value="{{$item['name']}}">{{$item['name']}}</option>
@@ -44,12 +44,12 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <select name="state" class="form-control selectpicker" data-live-search="true" id="state">
+                        <select name="state" class="form-control selectpicker" data-live-search="true" id="state" required>
                             <option value="">Select state</option>
                         </select>
                     </div>
                     <div class="col">
-                        <select name="city" class="form-control selectpicker" data-live-search="true" id="city">
+                        <select name="city" class="form-control selectpicker" data-live-search="true" id="city" required>
                             <option value="">Select city</option>
                         </select>
                     </div>
