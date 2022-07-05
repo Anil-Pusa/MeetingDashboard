@@ -74,7 +74,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <input type="text" class="form-control" name="key_note" placeholder="Notes">
+                        <input type="text" class="form-control" name="key_note" placeholder="Example keep warm clothes">
                     </div>
                     <div class="col">
                         <input type="datetime-local" class="form-control" name="meeting_slot" placeholder="Time">
@@ -112,7 +112,7 @@
                                 <input type="text" class="form-control" id="mobile_number" name="mobile_number"
                                     placeholder="Mobile number">
                                 <input type="text" class="form-control" id="key_note" name="key_note"
-                                    placeholder="Notes">
+                                    placeholder="Pack luggage as per weather">
                                 <input type="hidden" name="eventId" id="eventId">
                         </div>
                         <div class="modal-footer">
